@@ -12,14 +12,31 @@ function setup() {
 }
 
 function keyPressed() {
-  if (key == 'a') {
-    for (let i = 0; i < 5; i++) {
-    var jump = createVector(0, -3);
 
+  if (keyCode == UP_ARROW ) {
+    for (let i = 0; i < 5; i++) {
+      if (person[i].onGround()){
+      var jump = createVector(0, -5);
       person[i].applyForce(jump);
+      }
+    }
+  } else if (keyCode == RIGHT_ARROW) {
+    for (let i = 0; i < 5; i++) {
+      person[i].moveRight();
+    }
+  } else if (keyCode == LEFT_ARROW) {
+    for (let i = 0; i < 5; i++) {
+      person[i].moveLeft();
+    }
+  } else if (keyCode == DOWN_ARROW) {
+    for (let i = 0; i < 5; i++) {
+      person[i].stop();
     }
   }
+
+
 }
+
 
 function draw() {
   background(220, 50, 40);
