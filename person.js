@@ -11,6 +11,24 @@ function Person(x,y,m) {
     // f.div(this.mass);
     this.acc.add(force);
   }
+  
+  this.moveRight = function(){
+    this.vel.sub(this.vel.copy());
+    this.vel.add(2)
+  }
+  
+  this.moveLeft = function(){
+    this.vel.sub(this.vel.copy());
+    this.vel.add(-2)
+  }
+  
+  this.stop = function(){
+    this.vel = createVector(0,0);
+  }
+  
+  this.onGround = function(){
+    return this.vel.y == 0;
+  }
 
   this.update = function() {
     this.vel.add(this.acc);
@@ -46,3 +64,4 @@ function Person(x,y,m) {
     }
   }
 }
+
